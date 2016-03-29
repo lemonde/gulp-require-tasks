@@ -23,8 +23,10 @@ function gulpRequireTasks (options) {
 
   // Recursively visiting all modules in the specified directory
   // and registering Gulp tasks.
+  blacklist = /node_modules/,
   requireDirectory(module, options.path, {
-    visit: moduleVisitor
+        visit: moduleVisitor,
+        exclude: blacklist
   });
 
   /**
